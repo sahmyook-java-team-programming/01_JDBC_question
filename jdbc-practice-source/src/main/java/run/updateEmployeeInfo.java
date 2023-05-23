@@ -42,7 +42,7 @@ public class updateEmployeeInfo {
             int empSalary = sc.nextInt();
             sc.nextLine();
             System.out.print("사원의 보너스를 수정해주세요 : ");
-            float empBonus = sc.nextFloat();
+            double empBonus = sc.nextDouble();
             sc.nextLine();
 
             employeeDTO.setEmpId(empID);
@@ -55,8 +55,9 @@ public class updateEmployeeInfo {
             // 사원 정보(전화번호, 이메일, 부서코드, 급여, 보너스)를 입력받아 DTO객체에 담아서 update
 
             pstmt = con.prepareStatement(query);
-            pstmt.setString(1, employeeDTO.getEmail());
-            pstmt.setString(2, employeeDTO.getPhone());
+
+            pstmt.setString(1, employeeDTO.getPhone());
+            pstmt.setString(2, employeeDTO.getEmail());
             pstmt.setString(3, employeeDTO.getDeptCode());
             pstmt.setInt(4, employeeDTO.getSalary());
             pstmt.setDouble(5, employeeDTO.getBonus());
