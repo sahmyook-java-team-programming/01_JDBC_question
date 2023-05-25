@@ -2,5 +2,23 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <comment/>
-    <!-- 쿼리 작성 -->
+    <entry key="insertEmployee">
+        INSERT INTO EMPLOYEE (EMP_ID, EMP_NAME, EMP_NO, EMAIL, PHONE, DEPT_CODE, JOB_CODE, SAL_LEVEL,SALARY, BONUS, MANAGER_ID, HIRE_DATE, ENT_YN)
+        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    </entry>
+    <entry key="updateEmployee">
+        UPDATE EMPLOYEE
+        SET PHONE = ?, EMAIL = ?, JOB_CODE = ?, SALARY = ?, BONUS = ?
+        WHERE EMP_ID = ?
+    </entry>
+    <entry key="deleteEmployee">
+        DELETE
+        FROM EMPLOYEE E
+        WHERE E.EMP_NAME = ?
+    </entry>
+    <entry key="selectEmployee">
+        SELECT E.EMP_NAME, D.DEPT_TITLE, J.JOB.NAME
+        FROM EMPLOYEE E, DEPARTMENT D, JOB J
+        WHERE (E.EMP_ID = ?) AND (E.DEPT_CODE = D.DEPT_ID) AND (E.JOB_CODE = J.JOB_CODE)
+    </entry>
 </properties>
